@@ -1,0 +1,56 @@
+defaults:
+  - _self_
+  - task@_global_: pendulum_swingup
+  - agent: hpg
+  - override hydra/launcher: submitit_local
+
+# task settings
+frame_stack: 3
+action_repeat: 2
+discount: 0.99
+pixel_obs: true
+discrete_actions: ${agent.discrete_actions}
+# train settings
+num_seed_frames: 4000
+# eval
+eval_every_frames: 10000
+num_eval_episodes: 10
+# plot
+plot_every_frames: 500000
+num_plot_episodes: 2
+# save
+save_every_frames: 1000000
+# snapshot
+save_snapshot: false
+# replay buffer
+replay_buffer_size: 1000000
+replay_buffer_num_workers: 4
+nstep: 3
+batch_size: 256
+# misc
+seed: 13
+device: cuda
+save_video: true
+save_train_video: false
+# experiment
+experiment: exp
+# agent
+lr: 1e-4
+matching_dims: false
+linear_approx: false
+feature_dim: 50
+
+hydra:
+  run:
+    dir: ./${experiment}/${task_name}/${agent.agent_name}_pixels-${pixel_obs}/seed_${seed}/${now:%Y-%m-%d_%H-%M-%S}/
+  sweep:
+    dir: ./${experiment}/${task_name}/${agent.agent_name}_pixels-${pixel_obs}/seed_${seed}/${now:%Y-%m-%d_%H-%M-%S}/
+    subdir: ${hydra.job.num}
+  launcher:
+    timeout_min: 4300
+    cpus_per_task: 10
+    gpus_per_node: 1
+    tasks_per_node: 1
+    mem_gb: 160
+    nodes: 1
+    submitit_folder: ./${experiment}_multirun/${task_name}${agent.agent_name}_pixels-${pixel_obs}/seed_${seed}/${now:%Y-%m-%d_%H-%M-%S}/.slurm

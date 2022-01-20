@@ -1,0 +1,22 @@
+agent_name: sac
+discrete_actions: false
+
+agent:
+  _target_: agents.sac.SACAgent
+  obs_shape: ??? # to be specified later
+  action_shape: ??? # to be specified later
+  device: ${device}
+  lr: ${lr}
+  beta: 0.9
+  alpha_lr: 0.1
+  alpha_beta: 0.5
+  init_temperature: 0.01
+  actor_log_std_min: -10
+  actor_log_std_max: 2
+  actor_update_freq: 2
+  critic_target_tau: 0.01
+  critic_target_update_freq: 2
+  num_expl_steps: 2000
+  hidden_dim: 256
+  feature_dim: ${feature_dim}
+  linear_approx: ${linear_approx}
