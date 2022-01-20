@@ -1,4 +1,4 @@
-agent_name: ddpg_clipped_noise
+agent_name: ddpg_ours
 discrete_actions: false
 
 agent:

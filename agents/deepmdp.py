@@ -250,7 +250,6 @@ class DeepMDPAgent:
 
         # update encoder and decoder
         if step % self.decoder_update_freq == 0:
-            print("hello")
             metrics.update(self.update_encoder_and_decoder(obs, action, next_obs, step))
 
         return metrics

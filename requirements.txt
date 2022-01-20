@@ -1,5 +1,7 @@
 absl-py
-dm_control
+pyparsing
+opencv-python
+git+https://github.com/deepmind/dm_control.git
 termcolor
 tb-nightly
 torch==1.10.0
