@@ -3,7 +3,7 @@
 the baseline algorithms used in the paper: 
   * **Pixel observations:** DHPG, DBC, DeepMDP, SAC-AE, DrQ-v2.
   * **State observations:** DHPG, TD3, DDPG, SAC.
-* Results were obtained on Python v3.8.10, CUDA v11.4, PyTorch v1.10.0.
+* Results were obtained on Python v3.8.10, CUDA v11.4, PyTorch v1.10.0 on 10 seeds.
 
 ## Setup
 * Install the following libraries:
