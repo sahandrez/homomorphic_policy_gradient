@@ -47,6 +47,10 @@ python train.py pixel_obs=false action_repeat=1 frame_stack=1 task=pendulum_swin
 ```
 * Available agents are `hpg`, `hpg_ind`, `td3`, `sac`, `ddpg_original`, `ddpg_ours`.
 
+### Transfer Experiments
+* To run the transfer experiments, use `python transfer.py` with the same configurations discussed above, 
+but use `cartpole_transfer`, `quadruped_transfer`, `walker_transfer`, or `hopper_transfer` as the `task` argument.
+
 ### Tensorboard
 * To monitor results use:
 ```commandline
