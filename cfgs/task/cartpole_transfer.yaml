@@ -1,0 +1,5 @@
+defaults:
+  - transfer
+  - _self_
+
+task_name: [cartpole_balance, cartpole_swingup]

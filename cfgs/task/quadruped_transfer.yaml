@@ -1,0 +1,5 @@
+defaults:
+  - transfer
+  - _self_
+
+task_name: [quadruped_walk, quadruped_run]

@@ -1,0 +1,5 @@
+defaults:
+  - transfer
+  - _self_
+
+task_name: [walker_stand, walker_walk]
