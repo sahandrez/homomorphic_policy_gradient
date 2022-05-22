@@ -1,5 +1,5 @@
 # Homomorphic Policy Gradient Algorithms
-* This supplementary material includes our implementation of DHPG and all 
+* This code includes our Python implementation of DHPG and all 
 the baseline algorithms used in the paper: 
   * **Pixel observations:** DHPG, DBC, DeepMDP, SAC-AE, DrQ-v2.
   * **State observations:** DHPG, TD3, DDPG, SAC.
@@ -7,7 +7,7 @@ the baseline algorithms used in the paper:
 * Our code will be publicly released after the review process. 
 
 ## Setup
-* Install the following libraries:
+* Install the following libraries needed for Mujoco and DeepMind Control Suite:
 ```commandline
 sudo apt update
 sudo apt install libosmesa6-dev libgl1-mesa-glx libglfw3
@@ -21,35 +21,40 @@ conda create -n hpg_env python=3.8
 conda activate hpg_env
 pip install --upgrade pip
 ```
-* Install dependencies:
+* Install dependencies of this package:
 ```commandline
 pip install -r requirements.txt
 ````
 
 ## Instructions
-### Training on Pixel Observations
+### Training on Pixel Observations (Section 7.2, Appendices D.2, D.5, D.6)
 * To train agents on pixel observations:
 ```commandline
 python train.py task=pendulum_swingup agent=hpg 
 ```
-* Available agents are `hpg`, `hpg_aug`, `hpg_ind`, `hpg_ind_aug`, 
-`dbc`, `deepmdp`, `sacae`, `drqv2`.
+* Available **DHPG** agents are: `hpg`, `hpg_aug`, `hpg_ind`, `hpg_ind_aug`:
   * `hpg` is the DHPG variant in which gradients of HPG and DPG are summed 
   together for a single actor update (`hpg_aug` is `hpg` with image augmentation.) 
   * `hpg_ind` is the DHPG variant in which gradients of HPG and DPG are 
-   used to independently update the actor (`hpg_ind_aug` is `hpg_ind` with image augmentation.)   
+   used to independently update the actor (`hpg_ind_aug` is `hpg_ind` with image augmentation.)
+  * See Appendix D.5 for more information on these variants. 
+* Available **baseline** agents are: `drqv2`, `dbc`, `deepmdp`, `sacae`.
+  * You can run each baseline with image augmentation by simply adding `_aug` to the end
+  of its name. For example, `dbc_aug` runs `dbc` with image augmentation. 
 * If you do not have a CUDA device, use `device=cpu`.
 
-### Training on State Observations
-* To train agents on pixel observations:
+### Training on State Observations (Section 7.1, Appendix D.1)
+* To train agents on state observations:
 ```commandline
 python train.py pixel_obs=false action_repeat=1 frame_stack=1 task=pendulum_swingup agent=hpg 
 ```
-* Available agents are `hpg`, `hpg_ind`, `td3`, `sac`, `ddpg_original`, `ddpg_ours`.
+* Available **DHPG** agents are: `hpg`, `hpg_ind`.
+* Available **baseline** agents are: `td3`, `sac`, `ddpg_original`, `ddpg_ours`.
 
-### Transfer Experiments
-* To run the transfer experiments, use `python transfer.py` with the same configurations discussed above, 
-but use `cartpole_transfer`, `quadruped_transfer`, `walker_transfer`, or `hopper_transfer` as the `task` argument.
+### Transfer Experiments (Appendix D.3)
+* To run the transfer experiments, use `python transfer.py` with the same configurations discussed above for
+pixel observations, but use `cartpole_transfer`, `quadruped_transfer`, `walker_transfer`, or `hopper_transfer` 
+as the `task` argument.
 
 ### Tensorboard
 * To monitor results use:
