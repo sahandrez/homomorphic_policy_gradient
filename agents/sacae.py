@@ -14,6 +14,8 @@ from models.cnn import PixelEncoder, PixelDecoder
 from models.core import StochasticActor, Critic
 import utils.utils as utils
 
+from agents.drqv2 import RandomShiftsAug
+
 
 class SACAEAgent:
     def __init__(self, obs_shape, action_shape, device, lr, beta, feature_dim,
@@ -21,7 +23,7 @@ class SACAEAgent:
                  actor_log_std_min, actor_log_std_max, actor_update_freq,
                  critic_target_tau, critic_target_update_freq, encoder_tau,
                  decoder_update_freq, decoder_latent_lambda, decoder_weight_lambda,
-                 num_expl_steps):
+                 num_expl_steps, use_aug):
         self.device = device
         self.action_dim = action_shape[0]
         self.num_expl_steps = num_expl_steps
@@ -40,6 +42,7 @@ class SACAEAgent:
         self.alpha_lr = alpha_lr
         self.alpha_beta = alpha_beta
         self.init_temperature = init_temperature
+        self.use_aug = use_aug
 
         # models
         self.pixel_encoder = PixelEncoder(obs_shape, feature_dim).to(device)
@@ -63,6 +66,9 @@ class SACAEAgent:
         self.actor_opt = torch.optim.Adam(self.actor.parameters(), lr=lr,betas=(beta, 0.999))
         self.critic_opt = torch.optim.Adam(self.critic.parameters(), lr=lr, betas=(beta, 0.999))
         self.log_alpha_opt = torch.optim.Adam([self.log_alpha], lr=alpha_lr, betas=(alpha_beta, 0.999))
+
+        if self.use_aug:
+            self.aug = RandomShiftsAug(pad=4)
 
         self.train()
         self.critic_target.train()
@@ -194,6 +200,11 @@ class SACAEAgent:
         batch = next(replay_iter)
         obs, action, reward, discount, next_obs, _ = utils.to_torch(
             batch, self.device)
+
+        # image augmentation
+        if self.use_aug:
+            obs = self.aug(obs.float())
+            next_obs = self.aug(next_obs.float())
 
         # encode
         h = self.pixel_encoder(obs)

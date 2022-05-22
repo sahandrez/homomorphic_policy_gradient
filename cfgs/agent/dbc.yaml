@@ -24,3 +24,4 @@ agent:
   feature_dim: ${feature_dim}
   bisim_coef: 0.5
   linear_approx: ${linear_approx}
+  use_aug: false

@@ -16,6 +16,8 @@ from models.core import RewardPredictor
 from models.transition_model import make_transition_model
 import utils.utils as utils
 
+from agents.drqv2 import RandomShiftsAug
+
 
 class DeepMDPAgent:
     def __init__(self, obs_shape, action_shape, device, lr, transition_model_type,
@@ -23,7 +25,7 @@ class DeepMDPAgent:
                  alpha_lr, alpha_beta, actor_log_std_min, actor_log_std_max,
                  actor_update_freq, critic_target_tau, critic_target_update_freq,
                  encoder_tau, weight_lambda, decoder_update_freq, decoder_weight_lambda,
-                 num_expl_steps):
+                 num_expl_steps, use_aug):
         self.device = device
         self.action_dim = action_shape[0]
         self.num_expl_steps = num_expl_steps
@@ -43,6 +45,7 @@ class DeepMDPAgent:
         self.alpha_beta = alpha_beta
         self.init_temperature = init_temperature
         self.weight_lambda = weight_lambda
+        self.use_aug = use_aug
 
         # models
         self.pixel_encoder = PixelEncoder(obs_shape, feature_dim).to(device)
@@ -75,6 +78,9 @@ class DeepMDPAgent:
             list(self.reward_predictor.parameters()) + list(self.transition_model.parameters()),
             lr=lr, weight_decay=weight_lambda,
         )
+
+        if self.use_aug:
+            self.aug = RandomShiftsAug(pad=4)
 
         self.train()
         self.critic_target.train()
@@ -228,6 +234,11 @@ class DeepMDPAgent:
         batch = next(replay_iter)
         obs, action, reward, discount, next_obs, _ = utils.to_torch(
             batch, self.device)
+
+        # image augmentation
+        if self.use_aug:
+            obs = self.aug(obs.float())
+            next_obs = self.aug(next_obs.float())
 
         # encode
         h = self.pixel_encoder(obs)

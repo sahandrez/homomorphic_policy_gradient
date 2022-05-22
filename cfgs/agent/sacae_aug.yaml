@@ -1,4 +1,4 @@
-agent_name: sacae
+agent_name: sacae_aug
 discrete_actions: false
 
 agent:
@@ -24,4 +24,4 @@ agent:
   hidden_dim: 256
   feature_dim: ${feature_dim}
   linear_approx: ${linear_approx}
-  use_aug: false
+  use_aug: true
