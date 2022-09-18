@@ -1,3 +1,7 @@
+"""
+Copyright 2022 Sahand Rezaei-Shoshtari. All Rights Reserved.
+"""
+
 import numpy as np
 import torch
 import torch.nn as nn

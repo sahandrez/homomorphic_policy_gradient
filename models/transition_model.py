@@ -1,3 +1,7 @@
+"""
+Copyright 2022 Sahand Rezaei-Shoshtari. All Rights Reserved.
+"""
+
 import random
 import torch
 import torch.nn as nn

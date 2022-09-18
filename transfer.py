@@ -1,3 +1,10 @@
+"""
+Copyright 2022 Sahand Rezaei-Shoshtari. All Rights Reserved.
+
+Code adapted from:
+https://github.com/facebookresearch/drqv2
+"""
+
 import shutil
 import warnings
 warnings.filterwarnings('ignore', category=DeprecationWarning)

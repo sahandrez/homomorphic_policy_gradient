@@ -1,6 +1,11 @@
 """
+Copyright 2022 Sahand Rezaei-Shoshtari. All Rights Reserved.
+
 Implementation of DBC
 https://arxiv.org/abs/2006.10742
+
+Code is based on:
+https://github.com/facebookresearch/deep_bisim4control/blob/main/agent/bisim_agent.py
 """
 
 import hydra

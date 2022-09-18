@@ -1,6 +1,11 @@
 """
+Copyright 2022 Sahand Rezaei-Shoshtari. All Rights Reserved.
+
 Official Implementation of DRQ-v2
 https://arxiv.org/abs/2107.09645
+
+Code is based on:
+https://github.com/facebookresearch/drqv2
 """
 
 import hydra

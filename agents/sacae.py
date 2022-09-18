@@ -1,6 +1,11 @@
 """
+Copyright 2022 Sahand Rezaei-Shoshtari. All Rights Reserved.
+
 Implementation of SAC-AE.
 https://arxiv.org/abs/1910.01741
+
+Code is based on:
+https://github.com/denisyarats/pytorch_sac_ae
 """
 
 import hydra

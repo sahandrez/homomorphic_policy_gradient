@@ -1,10 +1,16 @@
-# Homomorphic Policy Gradient Algorithms
-* This code includes our Python implementation of DHPG and all 
-the baseline algorithms used in the paper: 
-  * **Pixel observations:** DHPG, DBC, DeepMDP, SAC-AE, DrQ-v2.
-  * **State observations:** DHPG, TD3, DDPG, SAC.
-* Results were obtained on Python v3.8.10, CUDA v11.4, PyTorch v1.10.0 on 10 seeds.
-* Our code will be publicly released after the review process. 
+# Continuous MDP Homomorphisms and Homomorphic Policy Gradients
+Author's PyTorch implementation of Deep Homomorphic Policy Gradients (DHPG). 
+If you use our code, please cite our NeurIPS 2022 paper:
+
+["Continuous MDP Homomorphisms and Homomorphic Policy Gradient". Sahand Rezaei-Shoshtari, Rosie Zhao, Prakash Panangaden, David Meger, and Doina Precup. In Advances in Neural Information Processing Systems (NeurIPS). 2022.
+](https://arxiv.org/abs/2209.07364)
+
+DHPG simultaneously learns the MDP homomorphism map and learns the optimal policy using the 
+homomorphic policy gradient theorem for continuous control problems:
+<p align="center">
+  <img src="figures/hpg_diagram.png" alt="HPG diagram." width="500"/>
+</p>
+
 
 ## Setup
 * Install the following libraries needed for Mujoco and DeepMind Control Suite:
@@ -27,6 +33,13 @@ pip install -r requirements.txt
 ````
 
 ## Instructions
+* This code includes our Python implementation of DHPG and all 
+the baseline algorithms used in the paper: 
+  * **Pixel observations:** DHPG, DBC, DeepMDP, SAC-AE, DrQ-v2.
+  * **State observations:** DHPG, TD3, DDPG, SAC.
+* Results were obtained on Python v3.8.10, CUDA v11.4, PyTorch v1.10.0 on 10 seeds.
+* Our code will be publicly released after the review process.
+
 ### Training on Pixel Observations (Section 7.2, Appendices D.2, D.5, D.6)
 * To train agents on pixel observations:
 ```commandline

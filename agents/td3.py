@@ -1,6 +1,11 @@
 """
+Copyright 2022 Sahand Rezaei-Shoshtari. All Rights Reserved.
+
 Implementation of Twin Delayed Deep Deterministic Policy Gradients (TD3)
 https://arxiv.org/abs/1802.09477
+
+Code is based on:
+https://github.com/sfujim/TD3/blob/master/OurDDPG.py
 """
 
 import hydra

@@ -1,6 +1,11 @@
 """
+Copyright 2022 Sahand Rezaei-Shoshtari. All Rights Reserved.
+
 Implementation of DeepMDP
 https://arxiv.org/abs/1906.02736
+
+Code is based on:
+https://github.com/facebookresearch/deep_bisim4control/blob/main/agent/deepmdp_agent.py
 """
 
 import hydra

@@ -1,6 +1,11 @@
 """
+Copyright 2022 Sahand Rezaei-Shoshtari. All Rights Reserved.
+
 Implementation of DDPG
 https://arxiv.org/abs/1509.02971
+
+Code is based on:
+https://github.com/sfujim/TD3/blob/master/OurDDPG.py
 """
 
 import hydra

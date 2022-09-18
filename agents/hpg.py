@@ -1,7 +1,10 @@
 """
-Implementation of HPG.
-Based on the lax bisimulation metric.
+Copyright 2022 Sahand Rezaei-Shoshtari. All Rights Reserved.
+
+Official implementation of DHPG.
+Author: Sahand Rezaei-Shoshtari
 """
+
 import copy
 
 import hydra
