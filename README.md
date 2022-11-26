@@ -74,3 +74,14 @@ as the `task` argument.
 ```commandline
 tensorboard --logdir exp
 ```
+
+## Citation
+If you are using our code, please cite our NeurIPS 2022 paper: 
+```bib
+@article{rezaei2022continuous,
+  title={Continuous MDP Homomorphisms and Homomorphic Policy Gradient},
+  author={Rezaei-Shoshtari, Sahand and Zhao, Rosie and Panangaden, Prakash and Meger, David and Precup, Doina},
+  journal={arXiv preprint arXiv:2209.07364},
+  year={2022}
+}
+```
