@@ -19,8 +19,8 @@ from torch import distributions as pyd
 from torch.distributions.utils import _standard_normal
 
 
-_STATE_AGENTS = ['hpg', 'ddpg', 'td3', 'sac']
-_PIXEL_AGENTS = ['hpg', 'drqv2', 'sacae', 'dbc', 'deepmdp']
+_STATE_AGENTS = ['hpg', 'stochastichpg', 'ddpg', 'td3', 'sac']
+_PIXEL_AGENTS = ['hpg', 'stochastichpg', 'drqv2', 'sacae', 'dbc', 'deepmdp']
 
 
 class eval_mode:

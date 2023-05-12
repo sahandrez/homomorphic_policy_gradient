@@ -39,6 +39,7 @@ lr: 1e-4
 matching_dims: false
 linear_approx: false
 feature_dim: 50
+lifting_weight: 100
 
 hydra:
   run:

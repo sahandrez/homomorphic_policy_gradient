@@ -1,0 +1,30 @@
+agent_name: stochastichpg_aug
+discrete_actions: false
+
+agent:
+  _target_: agents.stochastic_hpg.StochasticHPGAgent
+  obs_shape: ??? # to be specified later
+  action_shape: ??? # to be specified later
+  abstraction_type: base
+  hpg_update_type: double
+  transition_model_type: probabilistic
+  pixel_obs: ${pixel_obs}
+  device: ${device}
+  lr: ${lr}
+  critic_target_tau: 0.01
+  update_every_steps: 2
+  num_expl_steps: 2000
+  hidden_dim: 256
+  matching_dims: ${matching_dims}
+  feature_dim: ${feature_dim}
+  clipped_noise: true
+  homomorphic_coef: 1
+  linear_approx: ${linear_approx}
+  use_aug: true
+  init_temperature: 0.01
+  actor_log_std_min: -10
+  actor_log_std_max: 2
+  alpha_lr: 0.1
+  lifting_weight: ${lifting_weight}
+  lifting_repeat_obs: 100
+  stddev_schedule: ${stddev_schedule}
