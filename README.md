@@ -11,7 +11,7 @@ the deterministic variant:
 or `agent=stochastichpg_aug` for stochastic DHPG with image augmentation.
 
 * The novel symmetric environments (Section 7.2) are in the repos [symmetry_RL](https://github.com/sahandrez/symmetry_RL) 
-and [mountain_car_3D]()
+and [mountain_car_3D](https://github.com/sahandrez/mountain_car_3D).
 
 ---
 ### Instructions for the NeurIPS 2022 Paper
