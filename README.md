@@ -10,6 +10,9 @@ the deterministic variant:
 * In order to run the new agents with the stochastic policy, follow the instructions below and simply use `agent=stochastichpg` for stochastic DHPG,
 or `agent=stochastichpg_aug` for stochastic DHPG with image augmentation.
 
+* The novel symmetric environments (Section 7.2) are in the repos [symmetry_RL](https://github.com/sahandrez/symmetry_RL) 
+and [mountain_car_3D]()
+
 ---
 ### Instructions for the NeurIPS 2022 Paper
 * Author's PyTorch implementation of Deep Homomorphic Policy Gradients (DHPG). If you use our code, please cite our NeurIPS 2022 paper:
