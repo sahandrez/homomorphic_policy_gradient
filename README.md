@@ -5,7 +5,7 @@
 paper proposes _deterministic DHPG_, while the following preprint introduces _stochastic DHPG_ and compares it against
 the deterministic variant:
 
-["Policy Gradient Methods in the Presence of Symmetries and State Abstractions", Prakash Panangaden, Sahand Rezaei-Shoshtari, Rosie Zhao, David Meger, Doina Precup. Preprint. 2023](https://arxiv.org/abs/2305.05666)
+["Policy Gradient Methods in the Presence of Symmetries and State Abstractions", Prakash Panangaden, Sahand Rezaei-Shoshtari, Rosie Zhao, David Meger, Doina Precup. Journal of Machine Learning Research (JMLR). 2024](https://jmlr.org/papers/v25/23-1415.html)
 
 * In order to run the new agents with the stochastic policy, follow the instructions below and simply use `agent=stochastichpg` for stochastic DHPG,
 or `agent=stochastichpg_aug` for stochastic DHPG with image augmentation.
@@ -94,18 +94,24 @@ tensorboard --logdir exp
 If you are using our code, please cite our NeurIPS 2022 paper: 
 ```bib
 @article{rezaei2022continuous,
-  title={Continuous MDP Homomorphisms and Homomorphic Policy Gradient},
+  title={Continuous mdp homomorphisms and homomorphic policy gradient},
   author={Rezaei-Shoshtari, Sahand and Zhao, Rosie and Panangaden, Prakash and Meger, David and Precup, Doina},
-  journal={arXiv preprint arXiv:2209.07364},
+  journal={Advances in Neural Information Processing Systems},
+  volume={35},
+  pages={20189--20204},
   year={2022}
 }
 ```
-And our extended preprint which contains the theoretical and empirical results for stochastic policies:
+And our extended JMLR paper which contains the theoretical and empirical results for stochastic policies:
 ```bib
-@article{panangaden2023policy,
-  title={Policy Gradient Methods in the Presence of Symmetries and State Abstractions},
-  author={Panangaden, Prakash and Rezaei-Shoshtari, Sahand and Zhao, Rosie and Meger, David and Precup, Doina},
-  journal={arXiv preprint arXiv:2305.05666},
-  year={2023}
+@article{panangaden2024policy,
+  author  = {Prakash Panangaden and Sahand Rezaei-Shoshtari and Rosie Zhao and David Meger and Doina Precup},
+  title   = {Policy Gradient Methods in the Presence of Symmetries and State Abstractions},
+  journal = {Journal of Machine Learning Research},
+  year    = {2024},
+  volume  = {25},
+  number  = {71},
+  pages   = {1--57},
+  url     = {http://jmlr.org/papers/v25/23-1415.html}
 }
 ```
